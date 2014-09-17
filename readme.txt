@@ -1,3 +1,4 @@
 Git is a distributed version control sysytem;
 Git is free software distributed under GPL;
-Git is a new tool for ZWeKing; 
+Git is a new tool for ZWeKing;
+Creating a new branch is quick; 
