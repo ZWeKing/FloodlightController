@@ -4,3 +4,4 @@ Git is a new tool for ZWeKing;
 Creating a new branch is quick;
 Creating a new branch is quick & simple;
 branch management!
+solo
