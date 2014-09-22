@@ -1,7 +1,2 @@
-Git is a distributed version control sysytem;
-Git is free software distributed under GPL;
-Git is a new tool for ZWeKing;
-Creating a new branch is quick;
-Creating a new branch is quick & simple;
-branch management!
-solo
+Hello  
+You may get what you want from this project,but you must know the truth that though the files end with .java, the files are not java files.The files in the project are only part of Floodlight controller function module.
