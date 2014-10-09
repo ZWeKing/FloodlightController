@@ -19,6 +19,7 @@ public void portDown(IOFSwitch sw, OFMessage msg, FloodlightContext cntx){
 		//将OFPortMod命令发送到指定的交换机中，进行执行！
 		try{
 			sw.write(mymod,cntx);
+			sw.flush();
 			logger.info("PortDown success!");
 		}catch(Exception e){
 			logger.info("PortDown Failed");
