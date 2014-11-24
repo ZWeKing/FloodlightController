@@ -17,6 +17,7 @@ typedef struct node
 void DijkstraPath(MGraph g,int *dist,int *path,int v0)   //v0 是源点，根节点
 {
     int i,j,k;
+    int c=0;
     bool *visited=(bool *)malloc(sizeof(bool)*g.n);
     for(i=0;i<g.n;i++)     //初始化每个节点的相关信息
     {
@@ -31,10 +32,11 @@ void DijkstraPath(MGraph g,int *dist,int *path,int v0)   //v0 是源点，根节
             path[i]=-1;		//定义前一个节点为-1
         }
         visited[i]=false;
-	if(i==v0){
-	path[v0]=v0;
-	dist[v0]=0;
-	}        
+        if(c==0){
+            path[v0]=v0;
+            dist[v0]=0;
+            c=1;
+        }
     }
     visited[v0]=true;
     for(i=1;i<g.n;i++)     //计算到其他n-1个节点的路径和权值
@@ -59,6 +61,7 @@ void DijkstraPath(MGraph g,int *dist,int *path,int v0)   //v0 是源点，根节
             }
         }
     }
+    free(visited);
 }
 
 void showPath(int *path,int v,int v0)   //打印源节点到各个其他节点的路径
@@ -96,15 +99,13 @@ int main(int argc, char *argv[])
                 g.matrix[i][j]=0;
         g.n=n;
         g.e=e;
-	if(c==0){
-	cout<<"set the source node,the destination node,weight"<<endl;
-	c=1;	
-	}
+	    cout<<"set the source node,the destination node,weight"<<endl;
         for(i=0;i<e;i++)
         {
             cin>>s>>t>>w;
             g.matrix[s][t]=w;
         }
+	    cout<<"please input the source nodes:"<<endl;
         cin>>v0;        //获得源节点
         DijkstraPath(g,dist,path,v0);
         for(i=0;i<n;i++)
@@ -115,6 +116,8 @@ int main(int argc, char *argv[])
                 cout<<dist[i]<<endl;
             }
         }
+        free(dist);
+        free(path);
     }
     return 0;
 }
